@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: grafana
+  labels:
+    name: grafana
+    context: default
+spec:
+  containers:
+    - name: grafana
+      image: grafana/grafana:latest
+      ports:
+        - containerPort: 3000
+    - name: graphite
+      image: nickstenning/graphite
+      ports:
+        - containerPort: 80
+        - containerPort: 2003
+        - containerPort: 2004
+        - containerPort: 7002

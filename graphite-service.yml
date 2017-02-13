@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: graphite
+  labels:
+    name: graphite
+    context: default
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      name: default
+    - port: 2003
+      name: carbon-cache-line
+    - port: 2004
+      name: carbon-cache-pickle
+    - port: 7002
+      name: query-target
+  selector:
+    name: graphite
+    context: default

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+kubectl delete -f graphite-replication-controller.yml
+kubectl delete -f graphite-service.yml
+kubectl delete -f grafana-pod.yml
+kubectl delete -f grafana-service.yml
